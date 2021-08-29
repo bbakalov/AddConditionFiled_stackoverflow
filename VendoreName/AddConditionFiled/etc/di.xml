@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+    <virtualType name="VendoreNameAddConditionFiledFilterPool"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="VendoreNameAddConditionFiledFilterPool"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">VendoreName\AddConditionFiled\Model\ResourceModel\CustomCondition\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">VendoreNameAddConditionFiledFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="VendoreName\AddConditionFiled\Model\ResourceModel\CustomCondition\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">VendoreName_custom_condition</argument>
+            <argument name="eventPrefix" xsi:type="string">VendoreName_custom_condition_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">VendoreName_custom_condition_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">VendoreName\AddConditionFiled\Model\ResourceModel\CustomCondition</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="custom_condition_listing_data_source" xsi:type="string">VendoreName\AddConditionFiled\Model\ResourceModel\CustomCondition\Grid\Collection</item>
+            </argument>
+        </arguments>
+
+    </type>
+</config>

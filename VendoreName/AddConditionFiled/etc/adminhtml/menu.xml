@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="VendoreName_AddConditionFiled::VendoreName_addconditionfiled"
+             title="VendoreName - Add Condition Field"
+             translate="title"
+             module="VendoreName_AddConditionFiled"
+             sortOrder="10"
+             parent="Magento_Backend::marketing"
+             resource="VendoreName_AddConditionFiled::VendoreName_addconditionfiled" />
+
+        <add id="VendoreName_AddConditionFiled::menu"
+             title="Add Rules"
+             module="VendoreName_AddConditionFiled"
+             sortOrder="100"
+             parent="VendoreName_AddConditionFiled::VendoreName_addconditionfiled"
+             action="addconditionfiled/index/index"
+             resource="VendoreName_AddConditionFiled::menu"/>
+    </menu>
+</config>
